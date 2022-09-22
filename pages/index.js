@@ -18,7 +18,7 @@ export default function Home() {
       <header className='text-gray-600 flex flex-col pt-3 shadow-md fixed top-0 left-0 right-0 z-10 bg-white'>
        <NavBar triger={triger} handleTriger ={handleTriger}></NavBar>
       </header>
-      <main className='mt-28  flex flex-row divide-x divide-gray-3'>
+      <main className='mt-28  flex flex-row divide-x divide-gray-3 '>
         <SideBar triger={triger}></SideBar>
         <MainBody></MainBody>
       </main>
@@ -52,13 +52,13 @@ function NavBar({triger,handleTriger}){
             </input>
           </form>
           <ul className='flex flex-row ml-2 '>
-            <li className='ml-2 rounded-md bg-green-600 px-3 py-2 text-white m-auto'>
+            <li className='ml-2 rounded-md bg-green-600 px-3 py-2 text-white m-auto' role='button'>
               <a>Add website</a>
             </li>
-            <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto'>
+            <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto' role='button'>
               <a>Sign in</a>
             </li>
-            <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto'>
+            <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto' role='button'>
               <a>Sign up</a>
             </li>
           </ul>
@@ -114,8 +114,8 @@ function DropDown({name}){
 
 function SideBar({triger}){
   return (
-    <div className= {'w-60 h-screen bg-neutral-200 '}>
-      <div className={triger+' fixed pt-2 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
+    <div className= {'w-60 h-full bg-neutral-200 '}>
+      <div className={triger+' fixed pt-6 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
         <ul>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Websites</li>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Landings</li>
@@ -131,18 +131,76 @@ function SideBar({triger}){
 
 function MainBody(){
   return(
-    <div className='flex flex-col'>
-      <div>
+    <div className='px-60 pt-10 flex flex-col'>
+      <div className='grid grid-cols-2 gap-x-3 gap-y-10 text-sm text-gray-600'>
         <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+        <WebsiteCards></WebsiteCards>
+
       </div>
-      <div></div>
-      <div></div>
+      <div className='text-sm my-20 mx-auto'>
+        <p className='text-xl text-center'>Sign up to view more websites.</p>
+        <p>Browse through thousands of carefully selected inspirations. It's free.</p>
+        <div className='mt-5 flex justify-evenly'>
+          <a role='button' className='rounded-md bg-green-600 p-2 ml-32'>Sign up</a>
+          <a role='button' className='rounded-md bg-neutral-200 p-2 mr-32'>Sign in</a>
+        </div>
+      </div>
+      <footer className='flex flex-col mb-20 border-t-2 border-gray-200 py-4'>
+        <div>
+          <div className='text-4xl font-mono'>LOGO</div>
+        </div>
+        <div className='flex flex-row justify-between mt-6'>
+          <div className='flex flex-col w-32'>
+            <p>We collect awesome websites to help creatives find inspiration &amp; motivation to do rad stuff.</p>
+            <p></p>
+          </div>
+          <div>
+            <ul>
+              <li>About Us</li>
+              <li>Contact Us</li>
+              <li>Advertise</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Privacy &amp; terms</li>
+              <li> Our Guidelines</li>
+              <li>Yes, we use cookies</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
 
 function WebsiteCards(){
   return(
-    <div></div>
+    <div className='shadow-xl '>
+      <div className='divide-y divide-neutral-200'>
+        <div className='flex flex-col hover:-translate-y-3 transition-transform ease-in-out duration-150 hover:shadow-xl'>
+          <Image
+          src ='/landbukSample1.webp'
+          height={420}
+          width={300}
+          alt='sample'
+          />
+        </div>
+        <div className='flex flex-row p-2'>
+          <p className='flex-1'>Verified 1 day ago</p>
+          <svg role='button' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 stroke-gray-400 fill-gray-400 my-auto ">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <p>5</p>
+
+        </div>
+      </div>
+    </div>
   )
 }
