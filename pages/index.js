@@ -145,7 +145,7 @@ function MainBody(){
       </div>
       <div className='text-sm my-20 mx-auto'>
         <p className='text-xl text-center'>Sign up to view more websites.</p>
-        <p>Browse through thousands of carefully selected inspirations. It's free.</p>
+        <p>Browse through thousands of carefully selected inspirations. It&apos;s free.</p>
         <div className='mt-5 flex justify-evenly'>
           <a role='button' className='rounded-md bg-green-600 p-2 ml-32'>Sign up</a>
           <a role='button' className='rounded-md bg-neutral-200 p-2 mr-32'>Sign in</a>
