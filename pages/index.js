@@ -4,13 +4,23 @@ import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
 export default function Home() {
+  let [triger,setTriger] = useState('-translate-x-60 ');
+  
+  function handleTriger(){
+    
+    triger == '-translate-x-60 '?setTriger(''): setTriger('-translate-x-60 ');
+  }
+  
+
+
   return (
     <>
-      <header className='flex flex-col pt-3 shadow-md fixed top-0 left-0 right-0'>
-       <NavBar></NavBar>
+      <header className='text-gray-600 flex flex-col pt-3 shadow-md fixed top-0 left-0 right-0 z-10 bg-white'>
+       <NavBar triger={triger} handleTriger ={handleTriger}></NavBar>
       </header>
-      <main>
-        <SideBar></SideBar>
+      <main className='mt-28  flex flex-row divide-x divide-gray-3'>
+        <SideBar triger={triger}></SideBar>
+        <MainBody></MainBody>
       </main>
     
     </>
@@ -18,17 +28,17 @@ export default function Home() {
   )
 }
 
-function NavBar(){
+function NavBar({triger,handleTriger}){
   return (
     <>
       <nav className='group mx-3 mb-2 text-sm '>
         <div className='flex flex-row'>
-          <button className='rounded-md mr-2 px-3 hover:bg-gray-200' type='button'>
+          <button className={'rounded-md mr-2 px-3 hover:bg-gray-200'} type='button' onClick={handleTriger}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
-          <a className='text-xl font-mono my-auto'>
+          <a className='text-xl font-mono my-auto text-black mr-3'>
             LOGO
           </a>
           <form className='flex flex-1 relative m-auto'>
@@ -102,8 +112,37 @@ function DropDown({name}){
   )
 }
 
-function SideBar(){
+function SideBar({triger}){
   return (
+    <div className= {'w-60 h-screen bg-neutral-200 '}>
+      <div className={triger+' fixed pt-2 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
+        <ul>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Websites</li>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Landings</li>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Portfolios</li>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Blogs</li>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Stores</li>
+          <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Other</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+function MainBody(){
+  return(
+    <div className='flex flex-col'>
+      <div>
+        <WebsiteCards></WebsiteCards>
+      </div>
+      <div></div>
+      <div></div>
+    </div>
+  )
+}
+
+function WebsiteCards(){
+  return(
     <div></div>
   )
 }
