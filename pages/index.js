@@ -114,7 +114,7 @@ function DropDown({name}){
 
 function SideBar({triger}){
   return (
-    <div className= {'w-60 h-full bg-neutral-200 '}>
+    <div className= {'w-60 h-screen bg-neutral-200 '}>
       <div className={triger+' fixed pt-6 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
         <ul>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Websites</li>
@@ -157,7 +157,7 @@ function MainBody(){
         </div>
         <div className='flex flex-row justify-between mt-6'>
           <div className='flex flex-col w-32'>
-            <p>We collect awesome websites to help creatives find inspiration &amp; motivation to do rad stuff.</p>
+            <p>We collect awesome websites to help creatives find inspiration and motivation to do rad stuff.</p>
             <p></p>
           </div>
           <div>
@@ -169,7 +169,7 @@ function MainBody(){
           </div>
           <div>
             <ul>
-              <li>Privacy &amp; terms</li>
+              <li>Privacy and terms</li>
               <li> Our Guidelines</li>
               <li>Yes, we use cookies</li>
             </ul>
@@ -183,8 +183,8 @@ function MainBody(){
 function WebsiteCards(){
   return(
     <div className='shadow-xl '>
-      <div className='divide-y divide-neutral-200'>
-        <div className='flex flex-col hover:-translate-y-3 transition-transform ease-in-out duration-150 hover:shadow-xl'>
+      <div className='divide-y divide-neutral-200 overflow-hidden relative'>
+        <div className='flex flex-col hover:scale-125 transition-transform ease-in-out duration-150  hover:z-8'>
           <Image
           src ='/landbukSample1.webp'
           height={420}
@@ -192,7 +192,7 @@ function WebsiteCards(){
           alt='sample'
           />
         </div>
-        <div className='flex flex-row p-2'>
+        <div className='flex flex-row p-2 z-50'>
           <p className='flex-1'>Verified 1 day ago</p>
           <svg role='button' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 stroke-gray-400 fill-gray-400 my-auto ">
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
