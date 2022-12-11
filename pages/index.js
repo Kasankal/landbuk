@@ -182,16 +182,19 @@ function MainBody(){
 
 function WebsiteCards(){
   return(
-    <div className='shadow-xl '>
-      <div className='divide-y divide-neutral-200 overflow-hidden relative'>
-        <div className='flex flex-col hover:scale-125 transition-transform ease-in-out duration-150  hover:z-8'>
-          <Image
-          src ='/landbukSample1.webp'
-          height={420}
-          width={300}
-          alt='sample'
-          />
+    <div className='shadow-xl hover:-translate-y-2 transition-transform ease-in-out duration-150'>
+      <div className='divide-y divide-neutral-200  relative'>
+        <div className='overflow-hidden'>
+          <div className='flex flex-col hover:scale-125 transition-transform ease-in-out duration-150  hover:z-8'>
+            <Image
+            src ='/landbukSample1.webp'
+            height={420}
+            width={300}
+            alt='sample'
+            />
+          </div>
         </div>
+
         <div className='flex flex-row p-2 z-50'>
           <p className='flex-1'>Verified 1 day ago</p>
           <svg role='button' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 stroke-gray-400 fill-gray-400 my-auto ">
