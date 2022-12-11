@@ -11,8 +11,6 @@ export default function Home() {
     triger == '-translate-x-60 '?setTriger(''): setTriger('-translate-x-60 ');
   }
   
-
-
   return (
     <>
       <header className='text-gray-600 flex flex-col pt-3 shadow-md fixed top-0 left-0 right-0 z-10 bg-white'>
@@ -22,7 +20,6 @@ export default function Home() {
         <SideBar triger={triger}></SideBar>
         <MainBody></MainBody>
       </main>
-    
     </>
 
   )
@@ -31,17 +28,20 @@ export default function Home() {
 function NavBar({triger,handleTriger}){
   return (
     <>
-      <nav className='group mx-3 mb-2 text-sm '>
-        <div className='flex flex-row'>
-          <button className={'rounded-md mr-2 px-3 hover:bg-gray-200'} type='button' onClick={handleTriger}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          <a className='text-xl font-mono my-auto text-black mr-3'>
-            LOGO
-          </a>
-          <form className='flex flex-1 relative m-auto'>
+      <nav className='group mx-3 mb-2 text-sm z-10'>
+        <div className=' justify-between flex flex-row'>
+          <div className='flex flex-row'>
+            <button className={'rounded-md mr-2 px-3 hover:bg-gray-200'} type='button' onClick={handleTriger}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+            <a className='text-xl font-mono my-auto text-black mr-3'>
+              LOGO
+            </a>            
+          </div>
+
+          <form className='hidden sm:flex flex-1 relative m-auto'>
             <a className=' m-2 absolute '>
               <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className =" m-auto w-5 h-5 stroke-gray-400">
                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -51,11 +51,12 @@ function NavBar({triger,handleTriger}){
             <input className='flex-1 bg-gray-200 rounded-md text-sm px-8 py-2' type='search' placeholder='Search'>
             </input>
           </form>
-          <ul className='flex flex-row ml-2 '>
+
+          <ul className=' flex flex-row ml-2 '>
             <li className='ml-2 rounded-md bg-green-600 px-3 py-2 text-white m-auto' role='button'>
               <a>Add website</a>
             </li>
-            <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto' role='button'>
+            <li className='hidden sm:flex ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto' role='button'>
               <a>Sign in</a>
             </li>
             <li className='ml-2 rounded-md bg-gray-200 px-3 py-2 m-auto' role='button'>
@@ -71,7 +72,7 @@ function NavBar({triger,handleTriger}){
             <DropDown name='Industry'></DropDown>
             <DropDown name='Type'></DropDown>
           </div>
-          <div className='my-auto'>
+          <div className='hidden sm:my-auto'>
             <DropDown name='Recently featured'></DropDown>
 
           </div>
@@ -114,7 +115,7 @@ function DropDown({name}){
 
 function SideBar({triger}){
   return (
-    <div className= {'w-60 h-screen bg-neutral-200 '}>
+    <div className= {'w-60 h-screen bg-neutral-200 z-10'}>
       <div className={triger+' fixed pt-6 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
         <ul>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Websites</li>
@@ -131,8 +132,8 @@ function SideBar({triger}){
 
 function MainBody(){
   return(
-    <div className='px-60 pt-10 flex flex-col'>
-      <div className='grid grid-cols-2 gap-x-3 gap-y-10 text-sm text-gray-600'>
+    <div className='px-10 sm:px-60 pt-10 flex flex-col z-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-10 text-sm text-gray-600'>
         <WebsiteCards></WebsiteCards>
         <WebsiteCards></WebsiteCards>
         <WebsiteCards></WebsiteCards>
@@ -143,39 +144,15 @@ function MainBody(){
         <WebsiteCards></WebsiteCards>
 
       </div>
-      <div className='text-sm my-20 mx-auto'>
+      <div className=' flex flex-col text-sm my-20 mx-auto'>
         <p className='text-xl text-center'>Sign up to view more websites.</p>
         <p>Browse through thousands of carefully selected inspirations. It&apos;s free.</p>
-        <div className='mt-5 flex justify-evenly'>
-          <a role='button' className='rounded-md bg-green-600 p-2 ml-32'>Sign up</a>
-          <a role='button' className='rounded-md bg-neutral-200 p-2 mr-32'>Sign in</a>
+        <div className='mt-5 flex flex-col sm:flex-row'>
+          <a role='button' className='rounded-md bg-green-600 p-2 mx-auto'>Sign up</a>
+          <a role='button' className='rounded-md bg-neutral-200 p-2 mx-auto'>Sign in</a>
         </div>
       </div>
-      <footer className='flex flex-col mb-20 border-t-2 border-gray-200 py-4'>
-        <div>
-          <div className='text-4xl font-mono'>LOGO</div>
-        </div>
-        <div className='flex flex-row justify-between mt-6'>
-          <div className='flex flex-col w-32'>
-            <p>We collect awesome websites to help creatives find inspiration and motivation to do rad stuff.</p>
-            <p></p>
-          </div>
-          <div>
-            <ul>
-              <li>About Us</li>
-              <li>Contact Us</li>
-              <li>Advertise</li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li>Privacy and terms</li>
-              <li> Our Guidelines</li>
-              <li>Yes, we use cookies</li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+     <Footer></Footer>
     </div>
   )
 }
@@ -205,5 +182,35 @@ function WebsiteCards(){
         </div>
       </div>
     </div>
+  )
+}
+
+function Footer(){
+  return (
+    <footer className='flex flex-col mb-20 border-t-2 border-gray-200 py-4'>
+      <div>
+        <div className='text-4xl font-mono'>LOGO</div>
+      </div>
+      <div className='flex flex-row justify-between mt-6'>
+        <div className='flex flex-col w-32'>
+          <p>We collect awesome websites to help creatives find inspiration and motivation to do rad stuff.</p>
+          <p></p>
+        </div>
+        <div>
+          <ul>
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Advertise</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Privacy and terms</li>
+            <li> Our Guidelines</li>
+            <li>Yes, we use cookies</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   )
 }
