@@ -28,7 +28,7 @@ export default function Home() {
 function NavBar({triger,handleTriger}){
   return (
     <>
-      <nav className='group mx-3 mb-2 text-sm z-10'>
+      <nav className='group mx-3 mb-2 text-sm z-50'>
         <div className=' justify-between flex flex-row'>
           <div className='flex flex-row'>
             <button className={'rounded-md mr-2 px-3 hover:bg-gray-200'} type='button' onClick={handleTriger}>
@@ -115,8 +115,7 @@ function DropDown({name}){
 
 function SideBar({triger}){
   return (
-    <div className= {'w-60 h-screen bg-neutral-200 z-10'}>
-      <div className={triger+' fixed pt-6 z-8 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
+      <div className={triger+' fixed pt-6 z-10 shadow-xl px-5 w-60 h-96 font-mono text-lg text-gray-600 transition-transform ease-in-out duration-300 bg-white'}>
         <ul>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Websites</li>
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Landings</li>
@@ -126,13 +125,12 @@ function SideBar({triger}){
           <li className='rounded-md hover:bg-gray-200 px-3' role='button'>Other</li>
         </ul>
       </div>
-    </div>
   )
 }
 
 function MainBody(){
   return(
-    <div className='px-10 sm:px-60 pt-10 flex flex-col z-8'>
+    <div className='px-10 sm:px-60 pt-10 flex flex-col z-6'>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-10 text-sm text-gray-600'>
         <WebsiteCards></WebsiteCards>
         <WebsiteCards></WebsiteCards>
@@ -148,8 +146,8 @@ function MainBody(){
         <p className='text-xl text-center'>Sign up to view more websites.</p>
         <p>Browse through thousands of carefully selected inspirations. It&apos;s free.</p>
         <div className='mt-5 flex flex-col sm:flex-row'>
-          <a role='button' className='rounded-md bg-green-600 p-2 mx-auto'>Sign up</a>
-          <a role='button' className='rounded-md bg-neutral-200 p-2 mx-auto'>Sign in</a>
+          <a role='button' className='rounded-md bg-green-600 p-2 mx-auto my-2 sm:ml-32'>Sign up</a>
+          <a role='button' className='rounded-md bg-neutral-200 p-2 mx-auto my-2 sm:mr-32'>Sign in</a>
         </div>
       </div>
      <Footer></Footer>
@@ -162,7 +160,7 @@ function WebsiteCards(){
     <div className='shadow-xl hover:-translate-y-2 transition-transform ease-in-out duration-150'>
       <div className='divide-y divide-neutral-200  relative'>
         <div className='overflow-hidden'>
-          <div className='flex flex-col hover:scale-125 transition-transform ease-in-out duration-150  hover:z-8'>
+          <div className='flex flex-col hover:scale-125 transition-transform ease-in-out duration-150  hover:z-10'>
             <Image
             src ='/landbukSample1.webp'
             height={420}
@@ -191,11 +189,12 @@ function Footer(){
       <div>
         <div className='text-4xl font-mono'>LOGO</div>
       </div>
-      <div className='flex flex-row justify-between mt-6'>
-        <div className='flex flex-col w-32'>
+      <div>
+        <div className='w-full'>
           <p>We collect awesome websites to help creatives find inspiration and motivation to do rad stuff.</p>
-          <p></p>
         </div>
+      </div>
+      <div className='flex flex-row justify-between mt-6'>
         <div>
           <ul>
             <li>About Us</li>
